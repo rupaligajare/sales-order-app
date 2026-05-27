@@ -1,0 +1,27 @@
+# Dependencies & build output
+**/node_modules/
+**/target/
+**/dist/
+**/.vite/
+**/bin/
+
+# Eclipse
+**/.project
+**/.classpath
+**/.settings/
+
+# Env & secrets
+.env
+.env.local
+**/.env
+!**/.env.example
+
+# IDE & OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

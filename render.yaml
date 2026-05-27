@@ -1,0 +1,24 @@
+# Optional Render Blueprint (Infrastructure as Code).
+# Deploy from repo root: connect GitHub repo, then "New > Blueprint" and select this file.
+# Adjust service names and plans as needed.
+
+services:
+  - type: web
+    name: portal-api
+    runtime: docker
+    rootDir: item-backend/portal
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
+
+staticSites:
+  - name: sales-order-app
+    rootDir: sales-order-app
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false
+        # Set manually after portal-api is live, e.g. https://portal-api.onrender.com
